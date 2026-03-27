@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>玛薇卡 - 火神降临</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", sans-serif;
+            background: #f9f4f4;
+            overflow-x: hidden;
+        }
+
+        .header {
+            background-color: #b84c4c;
+            text-align: center;
+            padding: 50px 20px;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+            animation: fireWave 6s ease-in-out infinite alternate;
+        }
+
+        .fire-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 300%;
+            height: 100%;
+            background: linear-gradient(90deg,
+                transparent,
+                rgba(255,120,60,0.2),
+                rgba(255,180,80,0.3),
+                rgba(220,80,40,0.2),
+                transparent
+            );
+            animation: fireFlow 10s infinite linear;
+            z-index: 1;
+        }
+
+        .fire-light {
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg,
+                transparent,
+                rgba(255,220,100,0.3),
+                transparent
+            );
+            animation: fireShine 7s infinite linear;
+            z-index: 2;
+        }
+
+        .fire-flicker {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: radial-gradient(ellipse center, rgba(255,150,60,0.15) 0%, transparent 70%);
+            animation: flicker 3s ease-in-out infinite alternate;
+            z-index: 1.5;
+        }
+
+        @keyframes fireWave {
+            0% { transform: scale(1) translateY(0); }
+            100% { transform: scale(1.02) translateY(-5px); }
+        }
+
+        @keyframes fireFlow {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        @keyframes fireShine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        @keyframes flicker {
+            0% { opacity: 0.6; }
+            100% { opacity: 1; }
+        }
+
+        .title {
+            font-size: 42px;
+            margin-bottom: 30px;
+            font-weight: normal;
+            letter-spacing: 2px;
+            position: relative;
+            z-index: 3;
+            transition: transform 0.3s ease;
+        }
+        
+        .title:hover {
+            transform: scale(1.05);
+        }
+
+        .img-box {
+            background-color: #b84c4c;
+            padding: 22px;
+            display: inline-block;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 3;
+        }
+
+        .img-box:hover {
+            transform: translateY(-6px);
+        }
+
+        .img-box img {
+            display: block;
+            max-width: 100%; /* 自适应屏幕宽度 */
+            height: auto;
+            border-radius: 12px;
+            object-fit: cover;
+        }
+
+        .intro {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 18px;
+            line-height: 1.8;
+            text-align: left;
+            padding: 20px;
+            color: #fff;
+            position: relative;
+            z-index: 3;
+        }
+        
+        .intro span {
+            display: inline-block;      
+            transition: all 0.2s ease;  
+            cursor: pointer;            
+            white-space: pre;           
+        }
+        
+        .intro span:hover {
+            transform: scale(1.5);     
+            color: #ffcc88;             
+            text-shadow: 0 0 8px rgba(255,100,0,0.8); 
+            z-index: 10;                
+            position: relative;         
+        }
+
+        .footer {
+            background-color: #943b3b;
+            text-align: center;
+            padding: 35px;
+            color: #f1dede;
+            font-size: 14px;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+        
+        .footer:hover {
+            font-size: 18px;
+            letter-spacing: 2px;
+        }
+
+        /* 手机端适配 */
+        @media (max-width: 768px) {
+            .title {
+                font-size: 28px;
+                letter-spacing: 1px;
+            }
+            .intro {
+                font-size: 16px;
+                padding: 10px;
+            }
+            .img-box {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="fire-bg"></div>
+        <div class="fire-flicker"></div>
+        <div class="fire-light"></div>
+
+        <h1 class="title">原神 · 玛薇卡</h1>
+        
+        <div class="img-box">
+            <img src="https://gitee.com/srlaq/typora_image/raw/master/image/玛薇卡.jpg" alt="玛薇卡">
+        </div>
+
+        <div class="intro" id="magIntro">
+            玛薇卡，米哈游出品的游戏《原神》及其衍生作品中的角色，彩石与焰泉之国纳塔的领袖，“尘世七执政”中的现任火神，“归火圣夜巡礼”的主持兼裁判，至明、至炽、至烈的再临之火。
+            玛薇卡出身于悬木人，继承“基扬戈兹”之古名，誓以圣火为战争国度照亮未来。 火神是纳塔人的领袖，纳塔战士中的最强者。 玛薇卡率领着纳塔战士们迎接了无数的战争，也夺得了无数场胜利。 
+            无论面对怎样的敌人，玛薇卡的火焰从来没有暗淡过半分。
+        </div>
+    </div>
+
+    <div class="footer">
+        Genshin Impact · 火神降临
+    </div>
+
+    <script>
+        const introDiv = document.getElementById('magIntro');
+        const originalText = introDiv.innerText;
+        let newHtml = '';
+        
+        for (let i = 0; i < originalText.length; i++) {
+            const char = originalText[i];
+            newHtml += `<span>${char}</span>`;
+        }
+        introDiv.innerHTML = newHtml;
+    </script>
+</body>
+</html>
